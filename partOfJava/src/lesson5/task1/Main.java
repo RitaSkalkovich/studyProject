@@ -7,7 +7,7 @@ public class Main {
         Bird sparrow = new Bird("Воробей", 1);
         Bird penguin = new Bird("Пингвин", 11);
 
-//        System.out.println(eagle.getKind());
+        System.out.println(eagle.getKind());
 //        System.out.println(eagle.getWeight());
 //        System.out.println(sparrow.weight);
 
