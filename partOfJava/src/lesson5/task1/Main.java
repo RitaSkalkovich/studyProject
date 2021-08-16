@@ -7,9 +7,21 @@ public class Main {
         Bird sparrow = new Bird("Воробей", 1);
         Bird penguin = new Bird("Пингвин", 11);
 
+//        System.out.println(eagle.getKind());
+//        System.out.println(eagle.getWeight());
+//        System.out.println(sparrow.weight);
+
+
+        System.out.println(eagle.kind + "\n" + sparrow.kind + "\n" + penguin.kind); //все птицы
+
+
+//        double allWeight = eagle.weight + sparrow.weight + penguin.weight;   //общий вес
+//        System.out.println(allWeight);
+        //общий вес
 
     }
 }
+
 //
 //
 //
