@@ -9,6 +9,12 @@ public class Bird {
         this.weight = weight;
 
     }
+    public String getKind() {    // получить вид
+        return kind;
+
+    }
+
+
 
 
 }
