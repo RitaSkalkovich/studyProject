@@ -15,8 +15,8 @@ public class Main {
         System.out.println(eagle.kind + "\n" + sparrow.kind + "\n" + penguin.kind); //все птицы
 
 
-//        double allWeight = eagle.weight + sparrow.weight + penguin.weight;   //общий вес
-//        System.out.println(allWeight);
+        double allWeight = eagle.weight + sparrow.weight + penguin.weight;   //общий вес
+        System.out.println(allWeight);
         //общий вес
 
     }
