@@ -20,7 +20,26 @@ public class Chair {
             System.out.println("Без колесиков");
         }
     }
+    public class seat {
+        public void withMaterial() {
+
+            System.out.println("Ткань");
+        }
+
+        public void withoutMaterial() {
+            System.out.println("Дерево");
+        }
+    }
+
+    public class back {
+        public void folding() {
+            System.out.println("Откидная спинка");
+        }
+
+        public void noFolding() {
+            System.out.println("Неоткидная спинка");
+        }
 
 
-
+    }
 }
