@@ -15,6 +15,13 @@ public class Bird {
     }
 
 
+    public double getWeight() {    // получить вес
+        return weight;
+    }
+
+
+
+
 
 
 }
