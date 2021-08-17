@@ -1,0 +1,19 @@
+        -- Common --
+-- Аix packaging in project classes
+-- Use CTRL+ALT+L
+-- Rename all by java code convention
+
+        -- Task 1 --
+-- Rewrite class lesson5.Task1_Birds.Birds using object oriented programming principles
+-- Where second constructor
+-- Where method for setting weight
+-- Where default setting for weight
+
+
+        -- Task 2 --
+-- What with 'producer' and 'model' variables in Chair constructor?
+-- Strange decision. Will talk in the class
+
+
+        -- Task 3 --
+Where third task
