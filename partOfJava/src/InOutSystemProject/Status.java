@@ -1,6 +1,6 @@
 package InOutSystemProject;
 
-enum Status {
+public enum Status {
     INOFFICE(1),
     OUTOFOFFICE(2),
     WITHOUTCARD(3);

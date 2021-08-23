@@ -1,12 +1,16 @@
 package InOutSystemProject;
 
-public class Director extends Managers implements AccessRoom{
-    public Director(String name, String surname, int idCard, String cardAvailable) {
-        super(name, surname, idCard, cardAvailable);
+public class Director extends Manager implements VIP {
+    String role = "director";
+
+    public Director(String name, String surname) {
+        super(name, surname);
     }
 
     @Override
-    public void Access123Room() {
-
+    public void isGetAccess() {
+        String x;
+        x = this.name + " " + this.surname;
+        System.out.println(x + " можешь войти в комнату 123");
     }
 }
