@@ -1,20 +1,31 @@
 package InOutSystemProject;
 
-//import java.util.Arrays;
+
+
+import InOutSystemProject.Cabinet.CabinetForHelpDesk;
+import InOutSystemProject.Cabinet.CabinetForItDepartment;
+import InOutSystemProject.Cabinet.CabinetKitchen;
+import InOutSystemProject.Employee.Employee;
+import InOutSystemProject.Employee.ItDepartment;
+import InOutSystemProject.Employee.Managers.*;
+
+import InOutSystemProject.Employee.HelpDesk;
+import InOutSystemProject.Record.IdCardJournal;
+import InOutSystemProject.Record.NumberValidatorForEmployee;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         IdCardJournal id = new IdCardJournal();
 
         Employee teamManager = new TeamManager("Ivan", "Ivanov");
         id.registerEmployee(teamManager);
         id.enterToOffice(teamManager);
-        System.out.println("Можешь войти " + id.isEmployeehasAccessToOffice(teamManager));
+        System.out.println("Можешь войти " + id.isEmployeeHasAccessToOffice(teamManager));
 
         Employee accountant = new Accountant("Marya", "Petrovna");
         id.registerEmployee(accountant);
         id.enterToOffice(accountant);
-        System.out.println("Можешь войти " + id.isEmployeehasAccessToOffice(accountant));
+        System.out.println("Можешь войти " + id.isEmployeeHasAccessToOffice(accountant));
 
         Employee teamManager2 = new TeamManager("Name", "Surname");
         id.enterToOffice(teamManager2);
@@ -30,28 +41,26 @@ public class Main {
         System.out.println(helpDesk.status);
 
 
-        VIP teamManager5 = new TeamManager("Ivan", "Ivanov");
-        teamManager5.isGetAccess(); // менеджер с именем может войти в комнату
+        VIP heplDesk1 = new HelpDesk("Ivan", "Ivanov");
+        heplDesk1.isGetAccess();
 
+
+        HelpDesk[] hepDeskEmployee = new HelpDesk[]{new HelpDesk("Ivan", "Ivanov")};
+        CabinetForHelpDesk<HelpDesk> helpDeskEmployee1 = new CabinetForHelpDesk<>(hepDeskEmployee);
+        helpDeskEmployee1.move();
+
+        ItDepartment[] itDepartments = new ItDepartment[]{new ItDepartment("Petr", "Petrov")};
+        CabinetForItDepartment<ItDepartment> itDepartment = new CabinetForItDepartment<>(itDepartments);
+        itDepartment.move();
+
+
+        try {
+            NumberValidatorForEmployee.validate(14);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
 
     }
 }
-//        teamManager.isGetAccess(); // менеджер с именем может войти в комнату
-//    VIP.isGetAccess(); как сделать это
-
-//    getStatus(1);
-//
-//
-//    private static void getStatus(int numberOfStatus) {
-//        System.out.println(Status.INOFFICE.getNumberOfStatus());
-//        System.out.println(Arrays.toString(Status.values()));
-
-
-//    // вывод кол-во сотрудников в офисе
-//    // если проходит по айди - в офисе
-//    // если проходит по звонку - пометка+в офисе
-//    // если не прошел - не в офисе
-//    // кол-во в офисе по типу сотрудников
-
-
-
