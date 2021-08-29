@@ -1,4 +1,6 @@
-package InOutSystemProject;
+package InOutSystemProject.Employee;
+
+
 
 public class ItDepartment extends Employee {
 
