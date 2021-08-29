@@ -1,4 +1,6 @@
-package InOutSystemProject;
+package InOutSystemProject.Record;
+
+import InOutSystemProject.Employee.Employee;
 
 import java.time.Instant;
 import java.util.HashMap;
@@ -8,11 +10,12 @@ public class IdCardJournal {
     public HashMap idCards = new HashMap();  // пустой словарь
     public int amountOfEmployeesInOffice = 0;
 
-    public void enterToOffice(Employee employee) {
-        if (this.isEmployeehasAccessToOffice(employee)) {
+    public void enterToOffice(Employee employee) throws Exception {
+        NumberValidatorForEmployee.validate(amountOfEmployeesInOffice);
+        if (this.isEmployeeHasAccessToOffice(employee)) {
             employee.status = Status.INOFFICE;
 
-        } else {
+        } else if (!this.isEmployeeHasAccessToOffice(employee)) {
             employee.status = Status.WITHOUTCARD;
         }
         this.amountOfEmployeesInOffice++;
@@ -33,18 +36,11 @@ public class IdCardJournal {
         }
     }
 
-    public boolean isEmployeehasAccessToOffice(Employee employee) {
+    public boolean isEmployeeHasAccessToOffice(Employee employee) {
         return this.idCards.containsKey(employee.name + employee.surname);
     }
 
 
 }
-//        if (id.length() == 10) {
-//            this.idCards = id;
-//        } else {
-//            System.out.println("ложно");
-//        }
-
-
 
 
