@@ -1,8 +1,10 @@
-package InOutSystemProject;
+package InOutSystemProject.Employee;
 
-public class DeputyDirector extends Manager implements VIP {
+import InOutSystemProject.VIP;
 
-    public DeputyDirector(String name, String surname) {
+public class HelpDesk extends Employee implements VIP {
+
+    public HelpDesk(String name, String surname) {
         super(name, surname);
     }
 
@@ -13,6 +15,4 @@ public class DeputyDirector extends Manager implements VIP {
         x = this.name + " " + this.surname;
         System.out.println(x + " можешь войти в комнату 123");
     }
-
-
 }

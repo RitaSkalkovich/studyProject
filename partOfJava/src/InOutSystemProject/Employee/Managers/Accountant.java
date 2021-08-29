@@ -1,4 +1,4 @@
-package InOutSystemProject;
+package InOutSystemProject.Employee.Managers;
 
 public class Accountant extends Manager {
 

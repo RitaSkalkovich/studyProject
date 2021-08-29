@@ -1,9 +1,13 @@
-package InOutSystemProject;
+package InOutSystemProject.Employee.Managers;
 
-public class TeamManager extends Manager implements VIP{
-    public TeamManager(String name, String surname) {
+import InOutSystemProject.VIP;
+
+public class DeputyDirector extends Manager implements VIP {
+
+    public DeputyDirector(String name, String surname) {
         super(name, surname);
     }
+
 
     @Override
     public void isGetAccess() {
@@ -11,4 +15,6 @@ public class TeamManager extends Manager implements VIP{
         x = this.name + " " + this.surname;
         System.out.println(x + " можешь войти в комнату 123");
     }
+
+
 }
