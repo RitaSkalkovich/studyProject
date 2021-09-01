@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class IdCard {
 
+    // TODO: 9/1/2021 Why here main method? [Pavel.Chachotkin]
     public static void main(String[] args) {
 
         int arrayLength = 10;

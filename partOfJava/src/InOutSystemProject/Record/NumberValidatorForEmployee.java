@@ -6,6 +6,7 @@ public class NumberValidatorForEmployee {
             System.out.println("Количество мест есть");
         } else {
             throw new Exception("Мест уже нет");
+            // TODO: 9/1/2021 Must be created custom exception [Pavel.Chachotkin]
         }
     }
 }
