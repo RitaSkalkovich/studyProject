@@ -1,12 +1,14 @@
 package InOutSystemProject.Record;
 
 public class NumberValidatorForEmployee {
+
     public static void validate(int amount) throws Exception {
         if (amount >= 0 && amount <= 15) {
             System.out.println("Количество мест есть");
         } else {
-            throw new Exception("Мест уже нет");
+            throw new Exception("Мест уже нет, максимальное количество работников 15, сейчас: " + amount);
             // TODO: 9/1/2021 Must be created custom exception [Pavel.Chachotkin]
+            // Done in IdCardJournal class
         }
     }
 }

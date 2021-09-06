@@ -1,17 +1,11 @@
 package InOutSystemProject;
-
-
-
-import InOutSystemProject.Cabinet.CabinetForHelpDesk;
-import InOutSystemProject.Cabinet.CabinetForItDepartment;
-import InOutSystemProject.Cabinet.CabinetKitchen;
+import InOutSystemProject.Cabinet.Cabinet;
 import InOutSystemProject.Employee.Employee;
 import InOutSystemProject.Employee.ItDepartment;
 import InOutSystemProject.Employee.Managers.*;
-
 import InOutSystemProject.Employee.HelpDesk;
+import InOutSystemProject.Record.IdCard;
 import InOutSystemProject.Record.IdCardJournal;
-import InOutSystemProject.Record.NumberValidatorForEmployee;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -27,10 +21,10 @@ public class Main {
         id.enterToOffice(accountant);
         System.out.println("Можешь войти " + id.isEmployeeHasAccessToOffice(accountant));
 
-        Employee teamManager2 = new TeamManager("Name", "Surname");
+        Employee teamManager2 = new TeamManager("Petr", "Surname");
         id.enterToOffice(teamManager2);
 
-        Employee teamManager3 = new TeamManager("Name", "Surname");
+        Employee teamManager3 = new TeamManager("Sergei", "Surname");
         id.registerEmployee(teamManager3);
         id.enterToOffice(teamManager3);
         System.out.println(teamManager3.status);
@@ -44,23 +38,26 @@ public class Main {
         VIP heplDesk1 = new HelpDesk("Ivan", "Ivanov");
         heplDesk1.isGetAccess();
 
-
         HelpDesk[] hepDeskEmployee = new HelpDesk[]{new HelpDesk("Ivan", "Ivanov")};
-        CabinetForHelpDesk<HelpDesk> helpDeskEmployee1 = new CabinetForHelpDesk<>(hepDeskEmployee);
-        helpDeskEmployee1.move();
-
-        ItDepartment[] itDepartments = new ItDepartment[]{new ItDepartment("Petr", "Petrov")};
-        CabinetForItDepartment<ItDepartment> itDepartment = new CabinetForItDepartment<>(itDepartments);
-        itDepartment.move();
+        Cabinet<HelpDesk> cabinet = new Cabinet<>(hepDeskEmployee);
+        cabinet.storeEmployeeInCabinet();
 
 
-        try {
-            NumberValidatorForEmployee.validate(14);
+        // получение idCard
+        IdCard idCard = new IdCard();
+        idCard.getArray();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        // регистрация нескольких сотрудников
+        Employee[] employeeSeveral = new Employee[]{teamManager, teamManager2, teamManager3};
+        IdCardJournal idCardJournalSeveralEmployee = new IdCardJournal();
+        idCardJournalSeveralEmployee.registerWorkers(employeeSeveral);
 
-        }
+        // регистация одного сотрудника
+        ItDepartment employeeOne = new ItDepartment("Eva","Ivanovna");
+        IdCardJournal idCardJournalNewEmployee = new IdCardJournal();
+        idCardJournalNewEmployee.registerWorkers(employeeOne);
+        idCardJournalNewEmployee.validateInOffice(employeeOne);
 
     }
+
 }

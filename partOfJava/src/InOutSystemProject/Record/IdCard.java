@@ -1,19 +1,18 @@
+
 package InOutSystemProject.Record;
 
-import java.util.Arrays;
 import java.util.Random;
 
-
+// TODO: 9/1/2021 Why here main method? [Pavel.Chachotkin]
+// DONE by method getArray();
 public class IdCard {
 
-    // TODO: 9/1/2021 Why here main method? [Pavel.Chachotkin]
-    public static void main(String[] args) {
+    int arrayLength = 10;
+    int upperBounder = 10;
+    int[] array = generateIdCard(arrayLength, upperBounder);
 
-        int arrayLength = 10;
-        int upperBounder = 10;
-        int[] array = generateIdCard(arrayLength, upperBounder);
-//        System.out.println(Arrays.toString(array));
 
+    public int[] getArray() {
         System.out.print(array[0]);
         System.out.print(array[1]);
         System.out.print(array[2]);
@@ -24,7 +23,9 @@ public class IdCard {
         System.out.print(array[7]);
         System.out.print(array[8]);
         System.out.print(array[9]);
+        System.out.println();
 
+        return array;
     }
 
     private static int[] generateIdCard(int arrayLength, int upperBounder) {
@@ -37,7 +38,10 @@ public class IdCard {
         }
         return array;
     }
+
+
 }
+
 
 
 
