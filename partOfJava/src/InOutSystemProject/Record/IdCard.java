@@ -12,6 +12,7 @@ public class IdCard {
     int[] array = generateIdCard(arrayLength, upperBounder);
 
 
+    // TODO: 9/8/2021 What this method must do? [Pavel.Chachotkin]
     public int[] getArray() {
         System.out.print(array[0]);
         System.out.print(array[1]);

@@ -7,10 +7,8 @@ import java.util.HashMap;
 
 public class IdCardJournal {
     public final int maxEmployeeInOffice = 15;
-    // TODO: 9/1/2021 HashMap must have type [Pavel.Chachotkin]
-    public HashMap<String, String> idCards = new HashMap<>();  // пустой словарь
-    public int amountOfEmployeesInOffice; // TODO: 9/1/2021 Can I register users more than 15? [Pavel.Chachotkin]
-    // DONE  error appears if employees are > 15
+    public HashMap<String, String> idCards = new HashMap<>();
+    public int amountOfEmployeesInOffice;
 
 
 
@@ -34,8 +32,7 @@ public class IdCardJournal {
         }
 
     }
-    // TODO: 9/1/2021 Must be caught exception from validate method [Pavel.Chachotkin]
-    // Done validateInOffice method
+    // TODO: 9/1/2021 For what here signature for exception catching? [Pavel.Chachotkin]
     public void enterToOffice(Employee employee) throws Exception {
         try {
             NumberValidatorForEmployee.validate(amountOfEmployeesInOffice);

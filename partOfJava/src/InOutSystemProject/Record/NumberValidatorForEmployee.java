@@ -8,7 +8,6 @@ public class NumberValidatorForEmployee {
         } else {
             throw new Exception("Мест уже нет, максимальное количество работников 15, сейчас: " + amount);
             // TODO: 9/1/2021 Must be created custom exception [Pavel.Chachotkin]
-            // Done in IdCardJournal class
         }
     }
 }
