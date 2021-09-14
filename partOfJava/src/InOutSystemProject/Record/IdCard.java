@@ -2,9 +2,10 @@
 package InOutSystemProject.Record;
 
 import java.util.Random;
+import java.util.StringJoiner;
+import java.util.stream.IntStream;
 
-// TODO: 9/1/2021 Why here main method? [Pavel.Chachotkin]
-// DONE by method getArray();
+
 public class IdCard {
 
     int arrayLength = 10;
@@ -12,8 +13,7 @@ public class IdCard {
     int[] array = generateIdCard(arrayLength, upperBounder);
 
 
-    // TODO: 9/8/2021 What this method must do? [Pavel.Chachotkin]
-    public int[] getArray() {
+    public String getIdCard() {
         System.out.print(array[0]);
         System.out.print(array[1]);
         System.out.print(array[2]);
@@ -25,8 +25,9 @@ public class IdCard {
         System.out.print(array[8]);
         System.out.print(array[9]);
         System.out.println();
-
-        return array;
+        StringJoiner join = new StringJoiner("");
+        IntStream.of(array).forEach(x -> join.add(String.valueOf(x)));
+        return join.toString();
     }
 
     private static int[] generateIdCard(int arrayLength, int upperBounder) {

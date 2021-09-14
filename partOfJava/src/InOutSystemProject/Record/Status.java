@@ -1,10 +1,11 @@
 package InOutSystemProject.Record;
 
-// TODO: 9/8/2021 Write constant names by UPPER_SNAKE_CASE [Pavel.Chachotkin]
+
 public enum Status {
-    INOFFICE("В офисе"),
-    OUTOFOFFICE("Не в офисе"),
-    WITHOUTCARD("Без карты");
+    IN_OFFICE("В офисе"),
+    OUT_OF_OFFICE("Не в офисе"),
+    WITHOUT_CARD("Без карты"),
+    NOT_REGISTERED("Не наш работник");
 
     private String name;
 

@@ -2,23 +2,34 @@ package InOutSystemProject.Record;
 
 import InOutSystemProject.Employee.Employee;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashMap;
 
-public class IdCardJournal {
-    public final int maxEmployeeInOffice = 15;
+public class IdCardJournal implements Serializable {
+    public int maxEmployeeInOffice = 15;
     public HashMap<String, String> idCards = new HashMap<>();
     public int amountOfEmployeesInOffice;
 
+    public IdCardJournal(int maxEmployeeInOffice) {
+        this.maxEmployeeInOffice = maxEmployeeInOffice;
 
+    }
 
+    public IdCardJournal() {
+    }
 
+    public int getAllAmount() {
+        return amountOfEmployeesInOffice;
+    }
+
+    // регистрация нескольких сотруд-ов
     public void registerWorkers(Employee[] employee) {
         for (int i = 0; i < employee.length; i++) {
             System.out.println(employee[i]);
         }
     }
-
+      // регистрация по одному сотруднику
     public void registerWorkers(Employee employee) {
         System.out.println(employee);
     }
@@ -32,8 +43,10 @@ public class IdCardJournal {
         }
 
     }
+
     // TODO: 9/1/2021 For what here signature for exception catching? [Pavel.Chachotkin]
-    public void enterToOffice(Employee employee) throws Exception {
+    // need to discuss due to this method it causes an error when amount of employees in office is more than 15
+    public void enterToOffice(Employee employee, String... idCard) throws Exception {
         try {
             NumberValidatorForEmployee.validate(amountOfEmployeesInOffice);
         } catch (Exception e) {
@@ -41,10 +54,18 @@ public class IdCardJournal {
             return;
         }
         if (this.isEmployeeHasAccessToOffice(employee)) {
-            employee.status = Status.INOFFICE;
+            if (idCard.length > 0) {
+                if (!(idCard[0] instanceof String)) {
+                    throw new IllegalArgumentException("Not valid parameter");
+                }
+                employee.status = Status.IN_OFFICE;
 
+            } else {
+                employee.status = Status.WITHOUT_CARD;
+            }
         } else if (!this.isEmployeeHasAccessToOffice(employee)) {
-            employee.status = Status.WITHOUTCARD;
+            employee.status = Status.NOT_REGISTERED;
+            return;
         }
         this.amountOfEmployeesInOffice++;
         System.out.println("Считает прибытие " + amountOfEmployeesInOffice);
@@ -52,7 +73,7 @@ public class IdCardJournal {
     }
 
     public void leaveOffice(Employee employee) {
-        employee.status = Status.OUTOFOFFICE;
+        employee.status = Status.OUT_OF_OFFICE;
         this.amountOfEmployeesInOffice--;
         System.out.println("Считает убытие " + amountOfEmployeesInOffice);
     }
@@ -60,10 +81,13 @@ public class IdCardJournal {
     public void registerEmployee(Employee employee) {
         String key = employee.name + employee.surname;
         if (!this.idCards.containsKey(key)) {
-            this.idCards.put(key, Instant.now().toString());
+            IdCard idCard = new IdCard();
+            employee.idCard = idCard.getIdCard();
+            this.idCards.put(key, employee.idCard);
+//            this.idCards.put(key, Instant.now().toString());
             System.out.println("Сотрудник зарегистрирован");
         } else {
-            System.out.println("Сотрудник содержится в системе, зарегистрирован был до");// TODO: 9/1/2021 And what should be if contains user? [Pavel.Chachotkin]
+            System.out.println("Сотрудник содержится в системе, зарегистрирован был до");
         }
     }
 
@@ -72,6 +96,13 @@ public class IdCardJournal {
     }
 
 
+
+
+
 }
+
+
+
+
 
 
